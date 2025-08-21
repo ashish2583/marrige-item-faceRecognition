@@ -29,6 +29,11 @@ collection = db["images"]   # <-- your image collection
 # ===================== FASTAPI ===================== #
 app = FastAPI()
 
+
+@app.get("/")
+def home():
+    return JSONResponse(content={"message": "Hello from FastAPI on Vercel"})
+
 @app.post("/match-face")
 async def match_face(file: UploadFile = File(...)):
     tmp_dir  = tempfile.mkdtemp()
