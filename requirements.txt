@@ -6,3 +6,4 @@ requests
 numpy
 face_recognition
 git+https://github.com/ageitgey/face_recognition_models
+python-multipart
