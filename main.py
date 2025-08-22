@@ -12,6 +12,7 @@ import io
 import cloudinary
 import cloudinary.uploader
 from bson.json_util import loads
+from typing import List
 
 # ======== Cloudinary Config =========
 cloudinary.config(
@@ -73,7 +74,7 @@ async def match_face(file: UploadFile = File(...)):
 
 # ===================== FASTAPI Uploade image===================== #
 @app.post("/upload-multiple")
-async def upload_multiple_faces(userId: str, files: list[UploadFile] = File(...)):
+async def upload_multiple_faces(userId: str, files: List[UploadFile] = File(...)):
     results = []
 
     for file in files:
