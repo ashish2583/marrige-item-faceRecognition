@@ -72,6 +72,11 @@ async def match_face(file: UploadFile = File(...)):
     shutil.rmtree(tmp_dir)
     return {"matches": matches}
 
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 # ===================== FASTAPI Uploade image===================== #
 @app.post("/upload-multiple")
 async def upload_multiple_faces(userId: str, files: List[UploadFile] = File(...)):
